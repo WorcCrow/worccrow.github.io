@@ -1,12 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorcCrow</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0px;
+            margin: 0px;
+            font-size: 20px;
+        }
+
+        section {
+            margin: 0px;
+            padding: 0px;
+
+            height: 100vh;
+            width: 100%;
+        }
+
+        .home {
+            height: 80vh;
+            background:
+                linear-gradient(to top, rgba(255, 255, 255, 0.5) 1%, transparent 50%),
+                url('background.png') fixed center no-repeat;
+            background-size: 100vw;
+
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.4);
+            height: 100px;
+        }
+
+        nav svg{
+            position:absolute;
+            
+            z-index: 100;
+        }
+
+        nav .menu{
+            position:absolute;
+            top:0%;
+            z-index: 200;
+            padding:2em 0px 0px 5em;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 1em;
+            margin-right: 50px;
+            
+        }
+    </style>
 </head>
+
 <body>
-    Hello
+    <section class="home">
+        <nav>
+            
+            <div class="menu">
+                <a href="#home">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="1 0 1440 320">
+                <path fill="#0099ff" fill-opacity="1"
+                    d="M0,320L34.3,298.7C68.6,277,137,235,206,208C274.3,181,343,171,411,170.7C480,171,549,181,617,202.7C685.7,224,754,256,823,250.7C891.4,245,960,203,1029,202.7C1097.1,203,1166,245,1234,266.7C1302.9,288,1371,288,1406,288L1440,288L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z">
+                </path>
+            </svg>
+        </nav>
+    </section>
+    <section>2</section>
+    <section>3</section>
 </body>
+
 </html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; color:white}
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+
+    *{
+      box-sizing: border-box;
+    }
+    body{
+      background:hsl(228deg 11% 9%);
+    }
+
+    .card{
+      display:none;
+      background:linear-gradient(to top, #171e28, #1f2630);
+      padding:40px;
+      width:400px;
+      border-radius: 25px;
+      color:#eff1f2;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .card.active{
+      display:block
+    }
+
+    .card .icon{
+      width:50px;
+      height:50px;
+      border-radius: 25px;
+      color:white;
+      background:#262f38;
+      padding:15px;
+    }
+
+    .card .thankyou{
+      height:140px;
+      padding-bottom:20px;
+    }
+
+    .card .header{
+      margin-bottom:20px;
+    }
+
+    .card p{
+      color:#787e8a;
+      font-size:0.8rem;
+    }
+
+    .card .rate{
+      padding:5px 15px;
+      background:#262e38;
+      color:#fe7511;
+      border-radius: 25px;
+      font-size:0.9rem;
+    }
+
+    .card .rating{
+      margin-top:40px;
+      display:flex;
+      justify-content: space-between;
+    }
+
+    .card .rating div{
+      width:50px;
+      height:50px;
+      border-radius: 25px;
+      background:#262f38;
+      color:#7a828d;
+    }
+
+    .card .rating div.selected{
+      background:#7c8798;
+      color:#f2f8ff;
+    }
+
+    .card .rating div:hover{
+      background:#fe7511;
+      color:#fde4c8;
+      cursor: pointer;
+    }
+
+    .card .submit{
+      margin-top:40px;
+      background:#fc7613;
+      padding:15px;
+      border-radius:100px;
+    }
+
+    .card .submit:hover{
+      background:white;
+      color:#d77b2c;
+      cursor: pointer;
+    }
+
+    .container{
+      height: 100vh;
+    }
+
+    .middle{
+      display:flex;
+      justify-content: center;
+      align-items:center;
+    }
+
+    .hidden{
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container middle">
+      
+    <!-- Rating state start -->
+    <div class="card rate active">
+      <div class="header">
+        <div class="icon">
+          <img width="100%" src="./images/icon-star.svg">
+        </div>
+      </div>
+      <div class="body">
+        <h2>How did we do?</h2>
+        <p >
+          Please let us know how we did with your support request. All feedback is appreciated 
+          to help us improve our offering!
+        </p>
+
+        <div class="rating">
+          <div class="middle selected">1</div>
+          <div class="middle">2</div>
+          <div class="middle">3</div>
+          <div class="middle">4</div>
+          <div class="middle">5</div>
+        </div>
+
+        <div class="submit middle">SUBMIT</div>
+      </div>
+    </div>
+
+    <div class="card thankyou">
+      <div class="header">
+        <div class="thankyou middle">
+          <img height="100%" src="./images/illustration-thank-you.svg">
+        </div>
+      </div>
+      <div class="body">
+        <div class="middle"> 
+            <span class="rate"></span>
+        </div>
+        <div class="middle"> 
+          <h2>Thank you!</h1>
+        </div>
+
+        <div class="middle">
+          <p>
+            We appreciate you taking the time to give a rating. If you ever need more support, 
+  don’t hesitate to get in touch!
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Francis Micko Bienes</a>.
+  </div>
+  <script>
+  (()=>{
+    let rating = document.querySelectorAll('.card .rating div')
+    let rate = 0
+    rating.forEach(r=>{
+      r.addEventListener('click',()=>{
+        rating.forEach(r2=>{
+          r2.classList.remove('selected')
+        })
+        r.classList.add('selected')
+        rate = r.innerText
+      })
+    })
+    let submit = document.querySelector('.card .submit')
+    let card1 = document.querySelector('.card.rate')
+    let card2 = document.querySelector('.card.thankyou')
+    let card2rate = document.querySelector('.card.thankyou .rate')
+    submit.addEventListener('click',()=>{
+      card1.classList.remove('active')
+      card2rate.innerText = `You selected ${rate} out of 5`
+
+      card2.classList.add('active')
+    })
+
+  })()
+  </script>
+  
+</body>
+</html>
